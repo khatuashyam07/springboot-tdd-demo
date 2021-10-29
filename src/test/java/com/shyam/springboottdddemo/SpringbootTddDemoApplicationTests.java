@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -16,12 +18,12 @@ import net.minidev.json.JSONObject;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = SpringbootTddDemoApplication.class,
-webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ContextConfiguration(classes = SpringbootTddDemoApplication.class)
 @TestPropertySource(value={"classpath:application.properties"})
+@SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 class SpringbootTddDemoApplicationTests {
 
-	@Value("${server.port}")   // 6
+	@Value("${server.port}")
     int port;
 	
 	@Test
