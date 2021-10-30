@@ -22,7 +22,8 @@ public class StringServiceImpl implements StringService {
                 if (text.charAt(i + j) != pattern.charAt(j))
                     break;
  
-            if (j == M) { // if pat[0...M-1] = txt[i, i+1, ...i+M-1]
+            if (j == M) // if count of j ==M then i will be the matched index 
+	    { 
             	sb.append(" "+i +" ,");
             	patternMatched = true;
             }
